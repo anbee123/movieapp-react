@@ -5,10 +5,10 @@ import MovieDisplay from './components/MovieDisplay';
 
 function App() {
   const [movieData, setMovieData] = useState({});
-  const [movieTitle, setMovieTitle] = useState('star wars');
+  
   
     
-    const makeApiCall = async () => {
+    const makeApiCall = async (movieTitle) => {
       const movieUrl = `https://www.omdbapi.com/?t=${movieTitle}&apikey=98e3fb1f`;
       const res = await fetch(movieUrl);
       const json = await res.json();
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <Form getMovie={makeApiCall}/>
-      <MovieDisplay />
+      <MovieDisplay movie={movieData}/>
     </div>
   );
 }
