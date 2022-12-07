@@ -15,6 +15,9 @@ function App() {
 
       setMovieData(json)
     }
+    useEffect(()=>{
+      makeApiCall('star wars')
+    }, [])
    
 
  
